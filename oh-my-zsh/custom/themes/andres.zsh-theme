@@ -27,6 +27,7 @@ ZSH_THEME_GIT_PROMPT_PREFIX=" $FG[208]$FX[bold]"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$FG[255]$FX[bold]%} #"
 
-PROMPT='$FG[072]$FX[bold]($(hostname)):$(basename $PWD)%{$reset_color%}$(git_prompt_info) : '
+host="$(hostnamectl | grep "Static hostname" | awk '{print $3}')"
+PROMPT='$FG[072]$FX[bold]($host):$(basename $PWD)%{$reset_color%}$(git_prompt_info) : '
 RPROMPT='%{$fg_bold[white]%}$(get_ip) | $(bat_status)%{$reset_color%}'
 
